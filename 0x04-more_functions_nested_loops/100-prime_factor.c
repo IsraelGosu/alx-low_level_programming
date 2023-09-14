@@ -2,22 +2,27 @@
 
 /**
  * main - This code will prints largest prime factor of the number 612852475143.
- * Return: Always 0.
+ * Return: 0 as Always.
  */
 
 int main(void)
 {
-	long int n, ph;
+	long prime = 612852475143, dv;
 
-	n = 612852475143;
-	for (ph = 2; ph <= n; ph++)
+	while (dv < (prime /2))
 	{
-		if (n % ph == 0)
+		if ((prime % 2) == 0)
 		{
-			n /= ph;
-			ph--;
+			prime /= 2;
+			continue;
+		}
+
+		for (dv = 3; dv < (prime / 2); dv += 2)
+		{
+			if ((prime % dv) == 0)
+				prime /= dv;
 		}
 	}
-	printf("%ld\n", ph);
+	printf("%ld\n", prime);
 	return (0);
 }
